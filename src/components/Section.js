@@ -1,3 +1,4 @@
+
 import React from 'react'
 import styled from 'styled-components'
 
@@ -6,16 +7,19 @@ function Section() {
     <Wrap>
         <ItemText>
             <h1>Model S</h1>
-            <p>Order online for Tochless Delivery</p>
+            <p>Order online for Touchless Delivery</p>
         </ItemText>
-        <ButtonGroup>
-          <LeftButton>
-          Custom Order
-          </LeftButton>
-          <RightButton>
-          Existing Inventory
-          </RightButton>
-        </ButtonGroup>
+        <Buttons>
+          <ButtonGroup>
+            <LeftButton>
+              Custom Order
+            </LeftButton>
+            <RightButton>
+              Existing Inventory
+            </RightButton>                        
+          </ButtonGroup>
+            <DownArrow src="/images/downarrow.svg" /> 
+        </Buttons>
     </Wrap>
   )
 }
@@ -58,5 +62,14 @@ font-size: 12px;
 cursor: pointer;
 `
 const RightButton = styled(LeftButton)`
+
+`
+const DownArrow = styled.img`
+margin-top:20px;
+height: 40px;
+background-color: grey;
+border-radius:5px;
+`
+const Buttons = styled.div`
 
 `
