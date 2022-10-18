@@ -24,4 +24,5 @@ background-image: url('/images/model-s.jpg');
 `
 const ItemText = styled.div`
 padding-top: 15vh;
+text-align: center;
 `
