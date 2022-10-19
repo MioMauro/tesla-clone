@@ -60,6 +60,7 @@ opacity: 0.85;
 text-transform: uppercase;
 font-size: 12px;
 cursor: pointer;
+margin: 8px;
 `
 const RightButton = styled(LeftButton)`
 
@@ -69,6 +70,9 @@ margin-top:20px;
 height: 40px;
 background-color: grey;
 border-radius:5px;
+cursor:pointer;
+overflow-x: hidden;
+animation: animateDown infinite 1.5s;
 `
 const Buttons = styled.div`
 
