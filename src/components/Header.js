@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaBars } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa";
 
 function Header() {
+  const [burgherStatus, setBurgherStatus] = useState(false)
   return (
     <Container>
     <a>
@@ -18,12 +19,14 @@ function Header() {
     <RightMenu>
     <a href="/#">Shop</a>
     <a href="/#">Tesla Account</a>      
-    <CustomMenu>
+    <CustomMenu onClick={()=> setBurgherStatus(true)}>
       <FaBars />
     </CustomMenu> 
     </RightMenu> 
-      <BurgerNav>
-      <CustomClose><FaHashtag /></CustomClose>  
+      <BurgerNav show={burgherStatus}>
+      <CustomClose onClick={()=> setBurgherStatus(false)}>
+      <FaHashtag />
+      </CustomClose>  
         <li><a href='/#'>Existing Inventory</a></li>
         <li><a href='/#'>Used Inventory</a></li>
         <li><a href='/#'>Trade-in</a></li>
@@ -80,6 +83,7 @@ a{
 `
 
 const CustomMenu = styled.div`
+margin-right: 1rem;
 cursor:pointer;
 `
 
@@ -96,6 +100,8 @@ padding: 20px;
 display: flex;
 flex-direction: column;
 text-align: start;
+transform: ${props => props.show ? 'translateX(0)': 'translateX(100%)'};
+transition: transform 0.4s ease-in;
 li {
   padding: 15px 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
