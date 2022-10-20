@@ -2,9 +2,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 function Section({ title, description, leftBtnText, rightBtnText, backgroundImg }) {
   return (
     <Wrap bgImage={backgroundImg}>
+
         <ItemText>
             <h1>{ title }</h1>
             <p>{ description }</p>
@@ -14,7 +16,6 @@ function Section({ title, description, leftBtnText, rightBtnText, backgroundImg 
             <LeftButton>
               { leftBtnText }
             </LeftButton>            
-            
               { rightBtnText &&
                 <RightButton>
                   { rightBtnText }              
@@ -22,7 +23,7 @@ function Section({ title, description, leftBtnText, rightBtnText, backgroundImg 
               }                       
           </ButtonGroup>
             <DownArrow src="/images/downarrow.svg" /> 
-        </Buttons>
+        </Buttons>        
     </Wrap>
   )
 }
