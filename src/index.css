@@ -15,6 +15,10 @@ a{
     text-decoration: none;
 }
 
+.fa-bars{
+    color: aliceblue;
+}
+
 @keyframes animateDown {
     0%, 20%, 50%, 80%,100% {
         transform: translateY(0);

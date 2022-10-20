@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FaBars } from "react-icons/fa";
+
 
 function Header() {
   return (
@@ -15,9 +17,9 @@ function Header() {
     </Menu>
     <RightMenu>
     <a href="/#">Shop</a>
-    <a href="/#">Tesla Account</a>
-    <a href="/#">X</a>
+    <a href="/#">Tesla Account</a>    
     </RightMenu>
+    <CustomMenu><FaBars /></CustomMenu>    
     </Container>
   )
 }
@@ -29,6 +31,7 @@ min-height: 60px;
 position: fixed;
 display: flex;
 align-items:center;
+justify-content: space-between;
 padding: 0 20px;
 top: 0;
 left: 0;
@@ -47,11 +50,21 @@ a{
   padding: 0 10px;
   flex-wrap: no-wrap;
 }
+
+@media(max-width: 768px) {
+  display: none;
+}
 `
 const RightMenu = styled.div`
-a{
+display:flex;
+align-items: center;
+a{  
   font-weight: 600;
   text-transform: uppercase;
   margin-right: 10px;  
 }
+`
+
+const CustomMenu = styled.div`
+cursor:pointer;
 `
