@@ -2,23 +2,26 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaBars } from "react-icons/fa";
 import { FaHashtag } from "react-icons/fa";
+import { selectCars } from "../features/car/carSlice"
+import { useSelector } from "react-redux"
 
 function Header() {
   const [burgherStatus, setBurgherStatus] = useState(false)
+  const cars = useSelector(selectCars)
+  
   return (
     <Container>
     <a>
       <img src="/images/logo.svg" alt='car' />
     </a>      
-    <Menu>    
-    <a href="/#">Model S</a>
-    <a href="/#">Model 3</a>
-    <a href="/#">Model X</a>
-    <a href="/#">Model Y</a>
+    <Menu>
+    {cars && cars.map((car, index) =>(
+      <a key={index} href="#">{car}</a>
+    ))} 
     </Menu>
     <RightMenu>
-    <a href="/#">Shop</a>
-    <a href="/#">Tesla Account</a>      
+    <a href="#">Shop</a>
+    <a href="#">Tesla Account</a>      
     <CustomMenu onClick={()=> setBurgherStatus(true)}>
       <FaBars />
     </CustomMenu> 
@@ -26,15 +29,18 @@ function Header() {
       <BurgerNav show={burgherStatus}>
       <CustomClose onClick={()=> setBurgherStatus(false)}>
       <FaHashtag />
-      </CustomClose>  
-        <li><a href='/#'>Existing Inventory</a></li>
-        <li><a href='/#'>Used Inventory</a></li>
-        <li><a href='/#'>Trade-in</a></li>
-        <li><a href='/#'>CyberTruck</a></li>
-        <li><a href='/#'>Roadster</a></li>
-        <li><a href='/#'>Semi</a></li>
-        <li><a href='/#'>Utilities</a></li>
-        <li><a href='/#'>Test Drive</a></li>
+      </CustomClose>
+      {cars && cars.map((car, index) =>(
+        <li><a key={index} href='/#'>{car}</a></li>
+    ))}   
+        <li><a href='#'>Existing Inventory</a></li>
+        <li><a href='#'>Used Inventory</a></li>
+        <li><a href='#'>Trade-in</a></li>
+        <li><a href='#'>CyberTruck</a></li>
+        <li><a href='#'>Roadster</a></li>
+        <li><a href='#'>Semi</a></li>
+        <li><a href='#'>Utilities</a></li>
+        <li><a href='#'>Test Drive</a></li>
       </BurgerNav>      
     </Container>
   )
